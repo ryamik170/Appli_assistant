@@ -9,13 +9,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/view/chrono-view.fxml"));
+                getClass().getResource("/view/main-view.fxml")
+        );
 
-        // Largeur (ex: 800) et hauteur (ex: 600)
-        Scene scene = new Scene(loader.load(), 800, 600);
+        Scene scene = new Scene(loader.load(), 1000, 700);
 
-        stage.setTitle("Life Manager - Chrono");
+        stage.setTitle("Life Manager");
         stage.setScene(scene);
         stage.show();
     }

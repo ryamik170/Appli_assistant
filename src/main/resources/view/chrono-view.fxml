@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox spacing="20" alignment="CENTER"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.tonnom.lifemanager.Chrono">
+<VBox alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.tonnom.lifemanager.Chrono">
 
-    <Label fx:id="chronoLabel" text="Temps : 0 sec"/>
+    <Label fx:id="chronoLabel" text="0 : 0 " />
 
-    <Button text="Start" onAction="#handleStart"/>
+    <Button onAction="#handleStart" text="GO" />
 
 </VBox>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.controllers.MainController">
+
+    <!-- MENU GAUCHE -->
+    <left>
+        <VBox prefWidth="150" style="-fx-background-color: #FFFFE0;">
+            <Button maxWidth="1.7976931348623157E308" onAction="#openChrono" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Chrono" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#openAgenda" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Agenda" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#openStats" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Stats" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#openSettings" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Settings" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#openTo_do_list" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="To do list" />
+
+        </VBox>
+    </left>
+   <center>
+      <VBox prefHeight="590.0" prefWidth="517.0" spacing="30.0" style="-fx-background-color: #00FFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <Ellipse fill="DODGERBLUE" radiusX="100.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label text="ASSISTANT" />
+               </children>
+            </StackPane>
+            <StackPane>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f3eff" height="271.0" stroke="BLACK" strokeType="INSIDE" width="514.0" />
+                  <Label prefHeight="78.0" prefWidth="199.0" text="PHRASES D'ACCROCHE" />
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+   </center>
+
+</BorderPane>
