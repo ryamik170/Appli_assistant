@@ -3,13 +3,14 @@ package com.tonnom.lifemanager.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
 public class MainController {
 
     @FXML
-    private StackPane contentArea;
+    private VBox contentArea;
 
     private void loadPage(String page) {
         try {

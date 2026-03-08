@@ -22,7 +22,7 @@
         </VBox>
     </left>
    <center>
-      <VBox prefHeight="590.0" prefWidth="517.0" spacing="30.0" style="-fx-background-color: #00FFFF;" BorderPane.alignment="CENTER">
+      <VBox fx:id="contentArea" alignment="CENTER" prefHeight="590.0" prefWidth="517.0" spacing="30.0" style="-fx-background-color: #00FFFF;" BorderPane.alignment="CENTER">
          <children>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
