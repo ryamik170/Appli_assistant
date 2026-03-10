@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12" xmlns:fx="http://javafx.com/fxml" fx:controller="com.assistant.controllers.TodoController">
+    <children>
+        <Label text="Mes tâches" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+
+        <ListView fx:id="liste" prefHeight="220" prefWidth="420" />
+
+        <HBox spacing="8">
+            <children>
+                <TextField fx:id="tacheField" promptText="Nouvelle tâche..." prefWidth="300" />
+                <Button fx:id="btnAdd" text="Ajouter" onAction="#addNew" />
+            </children>
+        </HBox>
+
+        <Button fx:id="btnSup" text="Supprimer les tâches terminées" onAction="#suppTask" />
+        <Button fx:id="btnAide" text="Aide" onAction="#help" />
+        <Label fx:id="helpLabel" visible="false" managed="false"
+               text="Pour supprimer une tâche, il faut d'abord cliquer dessus puis appuyer sur le bouton supprimer."
+               wrapText="true" />
+    </children>
+</VBox>
