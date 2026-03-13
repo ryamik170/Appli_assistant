@@ -9,3 +9,17 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
+
+public class TodolistController {
+
+    @FXML
+    private void addNew() {
+        System.out.println("text");
+    }
+
+    @FXML
+    private void suppTask() {}
+
+    @FXML
+    private void help() {}
+}

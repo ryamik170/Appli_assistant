@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox spacing="12" xmlns:fx="http://javafx.com/fxml" fx:controller="com.assistant.controllers.TodoController">
+<VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.controllers.TodolistController">
     <children>
-        <Label text="Mes tâches" style="-fx-font-size: 32px; -fx-font-weight: bold;" />
+        <Label text="Mes tâches" /> <!--style="-fx-font-size: 32px; -fx-font-weight: bold;"-->
 
         <ListView fx:id="liste" prefHeight="220" prefWidth="420" />
 
@@ -27,3 +27,19 @@
                wrapText="true" />
     </children>
 </VBox>
+
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tonnom.lifemanager.controllers.TodolistController"
+      alignment="CENTER"
+      spacing="20">
+
+    <Label text= "TODO LIST TEST" style="-fx-font-size: 30px;" />
+
+</VBox>
+-->
