@@ -11,11 +11,13 @@
     <children>
         <Label text="Mes tâches" /> <!--style="-fx-font-size: 32px; -fx-font-weight: bold;"-->
 
-        <ListView fx:id="liste" prefHeight="220" prefWidth="420" />
+        <!-- <ListView fx:id="liste" prefHeight="220" prefWidth="420" /> -->
+        <VBox fx:id="taskContainer" spacing="10">
+        </VBox>
 
         <HBox spacing="8">
             <children>
-                <TextField fx:id="tacheField" promptText="Nouvelle tâche..." prefWidth="300" />
+                <TextField fx:id="task" promptText="Nouvelle tâche..." prefWidth="300" />
                 <Button fx:id="btnAdd" text="Ajouter" onAction="#addNew" />
             </children>
         </HBox>

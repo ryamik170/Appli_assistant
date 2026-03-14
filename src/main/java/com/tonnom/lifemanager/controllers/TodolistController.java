@@ -2,19 +2,30 @@ package com.tonnom.lifemanager.controllers;
 
 import com.tonnom.lifemanager.Task;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseButton;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class TodolistController {
 
     @FXML
+    private TextField task;
+
+    @FXML
+    private VBox taskContainer;
+
+    @FXML
     private void addNew() {
-        System.out.println("text");
+        String texte = task.getText();  //récupére la tache ecrit sur input
+        Text label = new Text(texte); // creation d'une nouvelle balise qui contient la tache
+
+
+        label.setOnMouseClicked(e -> {label.setStrikethrough(!label.isStrikethrough());}); //equivalent de toggle en Javascript, permet de barrer la tache
+
+        taskContainer.getChildren().add(label); //ajout de la balise avec la tache dans une autre balise (Vbox)
+        task.clear();
+
     }
 
     @FXML
