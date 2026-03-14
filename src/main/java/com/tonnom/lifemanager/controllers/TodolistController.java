@@ -1,8 +1,6 @@
 package com.tonnom.lifemanager.controllers;
 
-import com.tonnom.lifemanager.Task;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
