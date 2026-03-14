@@ -12,8 +12,7 @@
         <Label text="Mes tâches" /> <!--style="-fx-font-size: 32px; -fx-font-weight: bold;"-->
 
         <!-- <ListView fx:id="liste" prefHeight="220" prefWidth="420" /> -->
-        <VBox fx:id="taskContainer" spacing="10">
-        </VBox>
+        <VBox fx:id="taskContainer" spacing="10"> </VBox>
 
         <HBox spacing="8">
             <children>
@@ -24,9 +23,7 @@
 
         <Button fx:id="btnSup" text="Supprimer les tâches terminées" onAction="#suppTask" />
         <Button fx:id="btnAide" text="Aide" onAction="#help" />
-        <Label fx:id="helpLabel" visible="false" managed="false"
-               text="Pour supprimer une tâche, il faut d'abord cliquer dessus puis appuyer sur le bouton supprimer."
-               wrapText="true" />
+        <VBox fx:id="helpSentence" spacing="10" > </VBox>
     </children>
 </VBox>
 
