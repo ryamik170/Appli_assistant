@@ -24,15 +24,28 @@ public class Chrono {
     // Cette méthode s'exécute automatiquement à chaque fois que l'onglet s'affiche
     @FXML
     public void initialize() {
-        // 1. On affiche direct la valeur actuelle (ex: si on revient d'un autre onglet)
         mettreAJourLeTexte();
 
-        // 2. Si le moteur tourne, on lance la boucle qui rafraîchit le Label
         if (TimeManager.getInstance().estEnMarche()) {
+            // Le chrono tourne : on cache GO et on montre les contrôles
+            GO.setVisible(false); GO.setManaged(false);
+            fin.setVisible(true); fin.setManaged(true);
+            pause.setVisible(true); pause.setManaged(true);
+            pause.setText("Pause");
             lancerBoucleAffichage();
+        } else if (TimeManager.getInstance().getSecondesEcoulees() > 0) {
+            // Le chrono est en pause : on montre les contrôles mais avec le texte "Reprendre"
+            GO.setVisible(false); GO.setManaged(false);
+            fin.setVisible(true); fin.setManaged(true);
+            pause.setVisible(true); pause.setManaged(true);
+            pause.setText("Reprendre");
+        } else {
+            // Le chrono est à l'arrêt complet
+            GO.setVisible(true); GO.setManaged(true);
+            fin.setVisible(false); fin.setManaged(false);
+            pause.setVisible(false); pause.setManaged(false);
         }
     }
-
     @FXML
     private void handleStart() {
         GO.setVisible(false);GO.setManaged(false);
@@ -40,11 +53,6 @@ public class Chrono {
         TimeManager.getInstance().demarrer();
         deb = LocalDateTime.now();
         System.out.println("Debut : " + deb);
-        /*try{
-            this.encoding();
-        } catch (IOException e){
-            e.printStackTrace();
-        }*/
         lancerBoucleAffichage();
     }
 
@@ -67,6 +75,19 @@ public class Chrono {
         chronoLabel.setText(String.format("%d : %02d", mins, secs));
     }
 
+    private void Reset() {
+        // 1. On arrête le moteur et on remet à zéro
+        TimeManager.getInstance().reinitialiser();
+
+        // 2. On arrête la mise à jour visuelle locale
+        if (rafraichisseurVisuel != null) {
+            rafraichisseurVisuel.stop();
+        }
+
+        // 3. On force l'affichage à "0 : 00" immédiatement
+        mettreAJourLeTexte();
+    }
+
     public void encoding() throws IOException{
         String tram; String deb_t = deb.toString();
         BufferedWriter file = new BufferedWriter(new FileWriter("Files/Working_Data.txt", true));
@@ -74,9 +95,28 @@ public class Chrono {
         System.out.println("Fin : " + now);
         String res = tram.substring(0, 4) + "." + tram.substring(5, 7) + "." + tram.substring(8, 10) + "/" + deb_t.substring(11, 16) + "/" + tram.substring(11, 16);
         file.write(res);
-        file.newLine();;
+        file.newLine();
         file.close();
+        this.Reset();
+        GO.setVisible(true); GO.setManaged(true);
+        fin.setVisible(false); fin.setManaged(false);
+        pause.setVisible(false); pause.setManaged(false);
 
+    }
+
+    @FXML
+    private void Pause() {
+        if (TimeManager.getInstance().estEnMarche()) {
+            // Mode Pause
+            TimeManager.getInstance().mettrePause();
+            pause.setText("Reprendre"); // On change le texte du bouton
+            if (rafraichisseurVisuel != null) rafraichisseurVisuel.stop();
+        } else {
+            // Mode Reprise
+            TimeManager.getInstance().demarrer();
+            pause.setText("Pause"); // On remet le texte original
+            lancerBoucleAffichage();
+        }
     }
 }
 
