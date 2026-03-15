@@ -14,7 +14,9 @@
           <Label fx:id="chronoLabel" alignment="CENTER" prefHeight="42.0" prefWidth="80.0" text="0 : 0 " />
       </children>
    </StackPane>
+   <Button fx:id="pause" mnemonicParsing="false" text="Pause" visible="false"  />
+   <Button fx:id="fin" mnemonicParsing="false" onAction="#encoding" style="-fx-background-color: red;" text="FIN" visible="false" />
 
-          <Button onAction="#handleStart" text="GO" />
+          <Button fx:id="GO" onAction="#handleStart" style="-fx-background-color: red;" text="GO" visible="true" />
 
 </VBox>

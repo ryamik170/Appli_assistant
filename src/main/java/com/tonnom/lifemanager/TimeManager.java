@@ -25,7 +25,7 @@ public class TimeManager {
     public void demarrer() {
         // Si le chrono tourne déjà, on ne fait rien ou on recommence
         if (calculTimeline != null) calculTimeline.stop();
-
+        System.out.println("set elem");
         debut = Instant.now();
         calculTimeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             // On calcule l'écart entre le moment du clic et maintenant
@@ -41,5 +41,10 @@ public class TimeManager {
 
     public boolean estEnMarche() {
         return calculTimeline != null && calculTimeline.getStatus() == Animation.Status.RUNNING;
+    }
+
+    public Instant getDebut() {
+        System.out.println("GET ELEM");
+        return debut;
     }
 }
