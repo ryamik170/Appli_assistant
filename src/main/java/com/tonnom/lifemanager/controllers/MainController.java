@@ -1,5 +1,6 @@
 package com.tonnom.lifemanager.controllers;
 
+import com.tonnom.lifemanager.Games;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
@@ -47,4 +48,6 @@ public class MainController {
     private void openTo_do_list() {
         loadPage("To_do_list-view.fxml");
     }
+    @FXML
+    private void openGame() {loadPage("Games.fxml");}
 }

@@ -18,6 +18,7 @@
             <Button maxWidth="1.7976931348623157E308" onAction="#openStats" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Stats" />
             <Button maxWidth="1.7976931348623157E308" onAction="#openSettings" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Settings" />
             <Button maxWidth="1.7976931348623157E308" onAction="#openTo_do_list" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="To do list" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#openGame" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Game" />
 
         </VBox>
     </left>
