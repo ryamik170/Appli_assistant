@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.StackPane?>
 <VBox fx:id="root" alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.controllers.SettingController">
 
-    <Label text="Paramètres"/>
+    <Label text="Paramètres" style="-fx-font-weight: bold;"/>
 
     <Button fx:id="btn" onAction="#elems_in_setting" text="theme"/>
 

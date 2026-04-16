@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
 
-<VBox alignment="TOP_CENTER" spacing="50" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.controllers.SettingController">
+<VBox fx:id="root" alignment="TOP_CENTER" spacing="50" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.controllers.SettingController">
 
-    <Label alignment="TOP_CENTER" text="Bienvenue dans thème"/>
+    <Label alignment="TOP_CENTER" text="Bienvenue dans thème" style="-fx-font-weight: bold;"/>
+
+    <Label text="Choisis la couleur de fond d'écran de ton application" style="-fx-font-weight: bold;"/>
+
+    <HBox alignment="TOP_CENTER" spacing="10">
+        <Button text="red" onAction="#change_color"/>
+        <Button text="cyan" onAction="#change_color"/>
+        <Button text="blue" onAction="#change_color"/>
+        <Button text="white" onAction="#change_color"/>
+        <Button text="yellow" onAction="#change_color"/>
+        <Button text="orange" onAction="#change_color"/>
+        <Button text="pink" onAction="#change_color"/> 
+    </HBox>
 
 
     <VBox alignment="BOTTOM_LEFT" spacing="20">
-        <Button alignment="BOTTOM_LEFT" text="Back" onAction="#elems_in_setting"/>
+        <Button fx:id="btn" alignment="BOTTOM_LEFT" text="Back" onAction="#elems_in_setting"/>
     </VBox>
 
 </VBox>

@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.Parent;
 
 import java.io.IOException;
 
@@ -13,12 +14,21 @@ public class MainController {
     @FXML
     private VBox contentArea;
 
+    //leger modification de loadpage(en gardant sa fonctionnalité) permettant une lisaison entre Maincontroller et SettingController
+    //information dans SettingController.java
     private void loadPage(String page) {
         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/" + page));
+            Parent root = loader.load();
+            Object controller = loader.getController();
+
+            if (controller instanceof SettingController) {
+                ((SettingController) controller).setMainController(this);
+            }
+            
             contentArea.getChildren().clear();
-            contentArea.getChildren().add(
-                    FXMLLoader.load(getClass().getResource("/view/" + page))
-            );
+            contentArea.getChildren().add(root);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,6 +52,11 @@ public class MainController {
     @FXML
     private void openSettings() {
         loadPage("settings-view.fxml");
+    }
+
+    @FXML
+    public void color_of_the_background(String color) {
+        contentArea.setStyle("-fx-background-color: " + color + ";");
     }
 
     @FXML
