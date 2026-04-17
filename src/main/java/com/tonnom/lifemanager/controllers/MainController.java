@@ -1,8 +1,10 @@
 package com.tonnom.lifemanager.controllers;
 
 import com.tonnom.lifemanager.Games;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.Parent;
