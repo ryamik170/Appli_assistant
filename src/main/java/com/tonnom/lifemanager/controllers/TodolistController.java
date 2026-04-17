@@ -62,7 +62,7 @@ public class TodolistController {
 
     @FXML
     private void save_task(String task) {
-        try (FileWriter file = new FileWriter("Files/Save_task.txt", true)) {
+        try (FileWriter file = new FileWriter("Files/Save_task.txt")) {
             file.write(task + "\n");
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,10 +1,15 @@
 package com.tonnom.lifemanager.controllers;
 
 import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+
 import javafx.scene.Parent;
+
+import java.io.FileWriter;
 import java.io.IOException;
+
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
@@ -37,11 +42,12 @@ public class SettingController {
 
     private MainController mainController;
 
+    //Setter pour utiliser les méthodes de la class MainController
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
-    
+    //création des nouvelles pages necessaire à setting
     private void New_page(String page) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/" + page));
@@ -50,12 +56,12 @@ public class SettingController {
             // récupérer le controller de la nouvelle page
             Object controller = loader.getController();
 
-            // si c'est SettingController lier avec MainController
+            // si le type est SettingController lier avec MainController
             if (controller instanceof SettingController) {
                 ((SettingController) controller).setMainController(mainController);
             }
 
-            root.getChildren().setAll(new_page); //on remplace le contenu de setting
+            root.getChildren().setAll(new_page); //on remplace le contenu de la page setting par la page
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -69,16 +75,35 @@ public class SettingController {
             text = "settings";
         }
         New_page(text + "-view.fxml");
-    }   
+    }  
+
+    //sauvegarde de la couleur dans un fichier
+    public void save_color(String color) {
+        try (FileWriter file = new FileWriter("Files/Save_color_theme.txt")) {
+            file.write(color + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void delete_previous_color() {
+        try (FileWriter file = new FileWriter("Files/Save_color_theme.txt")) {
+            file.write("");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void change_color(ActionEvent event) {
         Button button = (Button) event.getSource();
         String color = button.getText();
-        System.out.println(color);
+        //System.out.println(color);
 
         if (mainController != null) {
-            System.out.println("okay");
+            //System.out.println("okay");
             mainController.color_of_the_background(color);
+            delete_previous_color();
+            save_color(color);
         }
         
     }

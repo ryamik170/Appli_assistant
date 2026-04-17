@@ -1,14 +1,13 @@
 package com.tonnom.lifemanager.controllers;
 
-import com.tonnom.lifemanager.Games;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.Parent;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class MainController {
@@ -59,6 +58,24 @@ public class MainController {
     @FXML
     public void color_of_the_background(String color) {
         contentArea.setStyle("-fx-background-color: " + color + ";");
+    }
+
+    //faire en sorte que la couleur reste meme quand on ferme le programme
+    private void load_color() {
+        try (BufferedReader file= new BufferedReader(new FileReader("Files/Save_color_theme.txt"))) {
+            String line = file.readLine();
+
+            if (line != null) {
+                color_of_the_background(line);
+            } 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void initialize() {
+        load_color();
     }
 
     @FXML
