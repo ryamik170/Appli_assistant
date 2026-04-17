@@ -9,21 +9,30 @@
 
 <VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.controllers.TodolistController">
     <children>
-        <Label text="Mes tâches" /> <!--style="-fx-font-size: 32px; -fx-font-weight: bold;"-->
+        <VBox spacing="15" alignment="CENTER" style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);">
 
-        <!-- <ListView fx:id="liste" prefHeight="220" prefWidth="420" /> -->
-        <VBox fx:id="taskContainer" spacing="10"> </VBox>
+            <Label text="Mes tâches" style="-fx-font-weight: bold; -fx-font-size: 24px;"/> <!--style="-fx-font-size: 32px;"-->
 
-        <HBox spacing="8">
-            <children>
-                <TextField fx:id="task" promptText="Nouvelle tâche..." prefWidth="300" />
-                <Button fx:id="btnAdd" text="Ajouter" onAction="#addNew" />
-            </children>
-        </HBox>
+            <!-- <ListView fx:id="liste" prefHeight="220" prefWidth="420" /> -->
+            <VBox fx:id="taskContainer" spacing="10"/>
 
-        <Button fx:id="btnSup" text="Supprimer les tâches terminées" onAction="#suppTask" />
-        <Button fx:id="btnAide" text="Aide" onAction="#help" />
-        <VBox fx:id="helpSentence" spacing="10" > </VBox>
+            <HBox spacing="10" alignment="CENTER">
+
+                <children>
+
+                    <TextField fx:id="task" promptText="Nouvelle tâche..." prefWidth="300" style="-fx-background-radius: 6; -fx-padding: 5;"/>
+                    <Button fx:id="btnAdd" text="Ajouter" onAction="#addNew" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 6;"/>
+
+                </children>
+
+            </HBox>
+
+            <Button fx:id="btnSup" text="Supprimer les tâches terminées" onAction="#suppTask" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-background-radius: 6;"/>
+            <Button fx:id="btnAide" text="Aide" onAction="#help" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 6;"/>
+            <VBox fx:id="helpSentence" spacing="10" > </VBox>
+        
+        </VBox>
+
     </children>
 </VBox>
 
