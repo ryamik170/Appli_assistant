@@ -15,7 +15,7 @@
       </children>
    </StackPane>
    <Button onAction="#Pause" fx:id="pause" mnemonicParsing="false" text="Pause" visible="false"  />
-   <Button fx:id="fin" mnemonicParsing="false" onAction="#encoding" style="-fx-background-color: red;" text="FIN" visible="false" />
+   <Button fx:id="fin" mnemonicParsing="false" onAction="#encoding"  text="FIN" visible="false" style="-fx-background-color: red; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);"/>
 
           <Button fx:id="GO" onAction="#handleStart" style="-fx-background-color: red;" text="GO" visible="true" />
 

@@ -3,8 +3,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
 
-<VBox xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER">
+<VBox xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" fx:controller="com.tonnom.lifemanager.Agenda"
+      fx:id="rootBox">
 
-    
+
 
 </VBox>
