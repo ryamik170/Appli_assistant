@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Ellipse?>
 
-<VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.Chrono">
+<VBox fx:id="color_text" alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.Chrono">
    <StackPane prefHeight="150.0" prefWidth="200.0">
       <children>
          <Ellipse fill="DODGERBLUE" radiusX="75.0" radiusY="52.0" stroke="BLACK" strokeType="INSIDE" />

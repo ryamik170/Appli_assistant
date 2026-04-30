@@ -10,6 +10,8 @@ import javafx.scene.Parent;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import com.tonnom.lifemanager.Settings_Theme;
+
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
@@ -34,11 +36,13 @@ import javafx.scene.layout.VBox;
 
 public class SettingController {
 
-    @FXML
-    private Button btn;
+    // FX:ID SE TROUVENT DANS LE FXML SETTINGS_VIEW
 
-    @FXML
-    private VBox root;
+    @FXML private Button btn;
+
+    @FXML private VBox root;
+
+    //OBJET DE LA CLASSE MAINCONTROLLER
 
     private MainController mainController;
 
@@ -46,6 +50,14 @@ public class SettingController {
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
+
+    //ICI JE VAIS APPELER LE THEME DU BG ET DES LABELS/TEXT A CHAQUE OUVERTURE DE LA PAGE
+
+    @FXML
+    public void initialize() {
+        Settings_Theme.app_color(root);
+    }
+
 
     //création des nouvelles pages necessaire à setting
     private void New_page(String page) {
@@ -101,10 +113,9 @@ public class SettingController {
 
         if (mainController != null) {
             //System.out.println("okay");
-            mainController.color_of_the_background(color);
+            mainController.color_of_the_appli(color);
             delete_previous_color();
             save_color(color);
         }
-        
     }
 }

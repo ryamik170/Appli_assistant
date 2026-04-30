@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Commun {
+    //j'avais confondu le static (une variable static) dans une methode/fonction je pensais que tu faisais reference à ca, static c broken t un monstre frerot (par le numero 2)
 
     public static List<String> split(String chaine, String car){
         // cette fonction prend une chaine de caractere et la split en fonction du car donner en parametre

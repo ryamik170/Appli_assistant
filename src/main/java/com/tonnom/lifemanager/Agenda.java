@@ -1,9 +1,11 @@
 package com.tonnom.lifemanager;
 
 import javafx.fxml.FXML;
+
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+
 import javafx.geometry.Pos;
 import java.time.temporal.WeekFields;
 import java.util.List;
@@ -41,6 +43,8 @@ public class Agenda {
 
     }
     public void initialize(){
+        Settings_Theme.app_color(rootBox);
+
         String contenu = Commun.getFirstLine("Files/Agenda.txt");
         if(contenu.equals("first")){
             calendar();

@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.controllers.TodolistController">
+<VBox fx:id="color_text" alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.controllers.TodolistController">
     <children>
-        <VBox spacing="15" alignment="CENTER" style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);">
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding: 30; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);"> <!-- -fx-background-color: white; -->
 
-            <Label text="Mes tâches" style="-fx-font-weight: bold; -fx-font-size: 24px;"/> <!--style="-fx-font-size: 32px;"-->
+            <Label text="Mes tâches" style="-fx-font-family: 'Arial'; -fx-font-weight: bold; -fx-font-size: 24px;"/> <!--style="-fx-font-size: 32px;"-->
 
             <!-- <ListView fx:id="liste" prefHeight="220" prefWidth="420" /> -->
             <VBox fx:id="taskContainer" spacing="10"/>
@@ -20,15 +20,15 @@
 
                 <children>
 
-                    <TextField fx:id="task" promptText="Nouvelle tâche..." prefWidth="300" style="-fx-background-radius: 6; -fx-padding: 5;"/>
-                    <Button fx:id="btnAdd" text="Ajouter" onAction="#addNew" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 6;"/>
+                    <TextField fx:id="task" promptText="Nouvelle tâche..." prefWidth="300" style=" -fx-font-family: 'Arial'; -fx-background-radius: 6; -fx-padding: 5; -fx-font-weight: bold;"/>
+                    <Button fx:id="btnAdd" text="Ajouter" onAction="#addNew" style="-fx-font-family: 'Arial'; -fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 6; -fx-font-weight: bold;"/>
 
                 </children>
 
             </HBox>
 
-            <Button fx:id="btnSup" text="Supprimer les tâches terminées" onAction="#suppTask" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-background-radius: 6;"/>
-            <Button fx:id="btnAide" text="Aide" onAction="#help" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 6;"/>
+            <Button fx:id="btnSup" text="Supprimer les tâches terminées" onAction="#suppTask" style="-fx-font-family: 'Arial'; -fx-background-color: #f44336; -fx-text-fill: white; -fx-background-radius: 6; -fx-font-weight: bold;"/>
+            <Button fx:id="btnAide" text="Aide" onAction="#help" style="-fx-font-family: 'Arial'; -fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 6; -fx-font-weight: bold;"/>
             <VBox fx:id="helpSentence" spacing="10" > </VBox>
         
         </VBox>

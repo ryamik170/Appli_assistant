@@ -10,10 +10,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import com.tonnom.lifemanager.Settings_Theme;
+
 public class MainController {
 
-    @FXML
-    private VBox contentArea;
+    @FXML private VBox contentArea;
+    
+    @FXML private Parent color_text;
 
     //leger modification de loadpage(en gardant sa fonctionnalité) permettant une lisaison entre Maincontroller et SettingController
     //information dans SettingController.java
@@ -56,8 +62,11 @@ public class MainController {
     }
 
     @FXML
-    public void color_of_the_background(String color) {
-        contentArea.setStyle("-fx-background-color: " + color + ";");
+    public void color_of_the_appli(String color) {
+        contentArea.setStyle(color);
+        Settings_Theme.setBackground_color(color);
+        Settings_Theme.app_color(color_text);
+ 
     }
 
     //faire en sorte que la couleur reste meme quand on ferme le programme
@@ -66,7 +75,7 @@ public class MainController {
             String line = file.readLine();
 
             if (line != null) {
-                color_of_the_background(line);
+                color_of_the_appli(line);
             } 
         } catch (IOException e) {
             e.printStackTrace();

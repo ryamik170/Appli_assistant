@@ -12,18 +12,18 @@
     <Label text="Choisis la couleur de fond d'écran de ton application" style="-fx-font-weight: bold;"/>
 
     <HBox alignment="TOP_CENTER" spacing="10">
-        <Button text="red" onAction="#change_color"/>
-        <Button text="cyan" onAction="#change_color"/>
-        <Button text="blue" onAction="#change_color"/>
-        <Button text="white" onAction="#change_color"/>
-        <Button text="yellow" onAction="#change_color"/>
-        <Button text="orange" onAction="#change_color"/>
-        <Button text="pink" onAction="#change_color"/> 
+        <Button text="red" onAction="#change_color" style="-fx-font-weight: bold;"/>
+        <Button text="cyan" onAction="#change_color" style="-fx-font-weight: bold;"/>
+        <Button text="blue" onAction="#change_color" style="-fx-font-weight: bold;"/>
+        <Button text="white" onAction="#change_color" style="-fx-font-weight: bold;"/>
+        <Button text="yellow" onAction="#change_color" style="-fx-font-weight: bold;"/>
+        <Button text="orange" onAction="#change_color" style="-fx-font-weight: bold;"/>
+        <Button text="pink" onAction="#change_color" style="-fx-font-weight: bold;"/> 
     </HBox>
 
 
     <VBox alignment="BOTTOM_LEFT" spacing="20">
-        <Button fx:id="btn" alignment="BOTTOM_LEFT" text="Back" onAction="#elems_in_setting"/>
+        <Button fx:id="btn" alignment="BOTTOM_LEFT" text="Back" onAction="#elems_in_setting" style="-fx-font-weight: bold;"/>
     </VBox>
 
 </VBox>

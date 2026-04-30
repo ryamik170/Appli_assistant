@@ -1,7 +1,9 @@
 package com.tonnom.lifemanager.controllers;
 
+import javafx.concurrent.Task;
+// ================= IMPORTS =================
 import javafx.fxml.FXML;
-
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -18,75 +20,142 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.tonnom.lifemanager.Commun;
+import com.tonnom.lifemanager.Settings_Theme;
+import com.tonnom.lifemanager.To_do_list;
+
+// ================= CONTROLLER =================
 public class TodolistController {
 
+    // ================= ATTRIBUTS FXML =================
+    @FXML private TextField task; // champ de texte pour entrer une tâche
+    @FXML private VBox taskContainer, helpSentence; // conteneur des tâches et de l'aide
+    @FXML private Button btnAide;
+    @FXML private Parent color_text;
+
+    private List<To_do_list> tasks = new ArrayList<>(); //va me permette d'eviter de trop ecrire dans le fichier, et de verifier si une tache est barré ou non
+
+    // =========================================================
+    // ================= INITIALISATION =========================
+    // =========================================================
+
+    /**
+     * Méthode appelée automatiquement à l'ouverture de la page
+     * Charge les tâches sauvegardées et applique le thème
+     */
     @FXML
-    private TextField task; //appel de la balise textfield qui a comme fx:id task
+    public void initialize() {
+        load_tasks();
+        Settings_Theme.app_color(color_text);
+        task.setOnAction(e -> addNew()); //enter
+    }
 
-    @FXML
-    private VBox taskContainer, helpSentence; //appel de la balise vbox qui a comme fx:id taskContainer
+    // =========================================================
+    // ================= GESTION AFFICHAGE ======================
+    // =========================================================
 
-    @FXML
-    private Button btnAide;
+    /**
+     * Ajoute une nouvelle tâche visuellement dans la liste, methode necessaire dans le cas ou veut garder les taches dans la todolist si jamais on quitte l'appli, methode appelé par load_tasks
+     */
+    public void addNew(String texte, boolean task_is_over) {
+        To_do_list todolist = new To_do_list(texte, task_is_over);
+        tasks.add(todolist);
 
-    //FONCTIONS D'AIDE POUR POUVOIR SAUVEGARDER LES TACHES DANS UN FICHIER TXT, UTILE QUAND LE PROGRAMME SE FERME --> LES TACHES SERONT CONSERVES
 
-
-    public void addNew(String texte) {
         Text label = new Text("• " + texte);
+        label.setStrikethrough(task_is_over);
+        System.out.println(todolist.isDone());
 
-        label.setOnMouseClicked(e -> {label.setStrikethrough(!label.isStrikethrough());
+        label.setOnMouseClicked(e -> {
+            System.out.println(!todolist.isDone());
+            todolist.setDone(!todolist.isDone());
+            label.setStrikethrough(todolist.isDone());
+            save_task();
         });
 
         taskContainer.getChildren().add(label);
     }
 
-    
-    private void load_tasks() {
-        try (BufferedReader file= new BufferedReader(new FileReader("Files/Save_task.txt"))) {
-            String line;
-            while ((line = file.readLine()) != null) {
-                addNew(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML 
-    public void initialize() {
-        load_tasks();
-    }
-
-    // FONCTIONS NECESSAIRE A L'AJOUT ET LA SUPPRESSION DES TACHES DE LA TODO LIST
-
-    @FXML
-    private void save_task(String task) {
-        try (FileWriter file = new FileWriter("Files/Save_task.txt")) {
-            file.write(task + "\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    /**
+     * Ajoute une nouvelle tâche depuis le champ texte
+     */
     @FXML
     private void addNew() {
-        String texte = task.getText();  //récupére la tache ecrit sur input
-        Text label = new Text("• " + texte); // creation d'une nouvelle balise qui contient la tache
-
-
-        label.setOnMouseClicked(e -> {label.setStrikethrough(!label.isStrikethrough());}); //equivalent de toggle en Javascript, permet de barrer la tache
+        String texte = task.getText();
 
         if (!texte.isEmpty()) {
-            taskContainer.getChildren().add(label); //ajout de la balise avec la tache dans une autre balise (Vbox)
-            save_task(texte);
+            addNew(texte, false);
+            save_task();
         }
+
         task.clear();
     }
 
+    /**
+     * Supprime les tâches barrées (visuellement + fichier)
+     */
+    @FXML
+    private void suppTask() {
+        for (int i = tasks.size() - 1; i >= 0; i--) {
+
+            if (tasks.get(i).isDone()) {
+                System.out.println(tasks.get(i).getTask());
+                tasks.remove(i);
+                taskContainer.getChildren().remove(i);
+            }
+        }
+        save_task();
+    }
+
+    // =========================================================
+    // ================= GESTION FICHIER ========================
+    // =========================================================
+
+    /**
+     * Sauvegarde une tâche dans le fichier texte
+     */
+    @FXML
+    private void save_task() {
+        try (FileWriter file = new FileWriter("Files/Save_task.txt")) {
+
+            for (To_do_list td : tasks) {
+                file.write(td.getTask() + "|" + td.isDone() + "\n");
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Charge toutes les tâches depuis le fichier texte
+     */
+    private void load_tasks() {
+        try (BufferedReader file = new BufferedReader(new FileReader("Files/Save_task.txt"))) {
+            String line;
+
+            while ((line = file.readLine()) != null) {
+                List<String> list = Commun.split(line, "|");
+
+                String task = list.get(0);
+                boolean task_is_over = Boolean.parseBoolean(list.get(1));
+
+                addNew(task, task_is_over);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Supprime une tâche spécifique du fichier texte
+     */
     @FXML
     private void supp_Task_in_file(String The_task) {
         System.out.println("nous sommes dans le fichier");
+
         Path file_path = Path.of("Files/Save_task.txt");
 
         try {
@@ -97,42 +166,40 @@ public class TodolistController {
                 System.out.println("fct qui supprime dans le file");
                 System.out.println(line);
                 System.out.println(The_task.substring(0));
+
                 if (!line.equals(The_task.substring(2))) {
                     newLines.add(line);
                 }
             }
+
             Files.write(file_path, newLines);
-            //for (String line)
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    @FXML
-    private void suppTask() {
-        for (int i = taskContainer.getChildren().size() - 1; i >= 0; i--) {
-            // Attention faire taskContainer.getChildren()[0] est mauvais car ce n'est pas une liste/tableau/array, c'est une liste observable de noeud
-            Text task = (Text) taskContainer.getChildren().get(i); //la solution actuel est de faire un cast pour convertir le type Node qu'est tC.gC.g(i) en Text pour pouvoir utiliser le isStrikethrough()
-            if (task.isStrikethrough()){
-                System.out.println(task.getText());
-                System.out.println("Prochaine instruction on veut supprimer dans le fichier");
-                supp_Task_in_file(task.getText());
-                taskContainer.getChildren().remove(i);
-            }
-        }
-    }
+    // =========================================================
+    // ================= AIDE UTILISATEUR =======================
+    // =========================================================
 
+    /**
+     * Affiche ou cache le message d'aide
+     */
     @FXML
     private void help() {
-        //System.out.println(btnAide.getText());
+
         if (btnAide.getText().equals("Aide")) {
-            Text balise = new Text("Pour supprimer une tâche, il faut d'abord cliquer dessus puis appuyer sur le bouton supprimer.");
+
+            Text balise = new Text(
+                "Pour supprimer une tâche, il faut d'abord cliquer dessus puis appuyer sur le bouton supprimer."
+            );
+
             helpSentence.getChildren().add(balise);
             btnAide.setText("Cacher");
-            //System.out.println("dedans");
 
         } else if (btnAide.getText().equals("Cacher")) {
+
             helpSentence.getChildren().remove(0);
             btnAide.setText("Aide");
         }

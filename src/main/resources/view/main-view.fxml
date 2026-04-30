@@ -8,27 +8,27 @@
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.shape.Rectangle?>
 
-<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.controllers.MainController">
+<BorderPane fx:id="color_text" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tonnom.lifemanager.controllers.MainController">
 
     <!-- MENU GAUCHE -->
     <left>
         <VBox prefWidth="150" style="-fx-background-color: #FFFFE0;">
-            <Button maxWidth="1.7976931348623157E308" onAction="#openChrono" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Chrono" />
-            <Button maxWidth="1.7976931348623157E308" onAction="#openAgenda" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Agenda" />
-            <Button maxWidth="1.7976931348623157E308" onAction="#openStats" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Stats" />
-            <Button maxWidth="1.7976931348623157E308" onAction="#openSettings" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Settings" />
-            <Button maxWidth="1.7976931348623157E308" onAction="#openTo_do_list" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="To do list" />
-            <Button maxWidth="1.7976931348623157E308" onAction="#openGame" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1;" text="Game" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#openChrono" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1; -fx-font-weight: bold;" text="Chrono" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#openAgenda" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1; -fx-font-weight: bold;" text="Agenda" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#openStats" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1; -fx-font-weight: bold;" text="Stats" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#openSettings" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1; -fx-font-weight: bold;" text="Settings" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#openTo_do_list" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1; -fx-font-weight: bold;" text="To do list" />
+            <Button maxWidth="1.7976931348623157E308" onAction="#openGame" prefHeight="80.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-color: #ADD8E6; -fx-border-width: 1; -fx-font-weight: bold;" text="Game" />
 
         </VBox>
     </left>
    <center>
-      <VBox fx:id="contentArea" alignment="CENTER" prefHeight="590.0" prefWidth="517.0" spacing="30.0" style="-fx-background-color: #00FFFF;" BorderPane.alignment="CENTER">
+      <VBox fx:id="contentArea" alignment="CENTER" prefHeight="590.0" prefWidth="517.0" spacing="30.0" style="-fx-background-color: #00FFFF; -fx-font-weight: bold;" BorderPane.alignment="CENTER">
          <children>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
                   <Ellipse fill="DODGERBLUE" radiusX="100.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Label text="ASSISTANT" />
+                  <Label text="ASSISTANT" style="-fx-font-weight: bold;"/>
                </children>
             </StackPane>
             <StackPane>

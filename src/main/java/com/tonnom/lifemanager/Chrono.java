@@ -4,6 +4,7 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
@@ -18,12 +19,15 @@ public class Chrono {
     @FXML private Button pause;
     @FXML private Button fin;
     @FXML private Button GO;
+    @FXML private Parent color_text;
+
     private Timeline rafraichisseurVisuel; // Boucle locale d'affichage
     private LocalDateTime deb;
 
     // Cette méthode s'exécute automatiquement à chaque fois que l'onglet s'affiche
     @FXML
     public void initialize() {
+        Settings_Theme.app_color(color_text);
         mettreAJourLeTexte();
 
         if (TimeManager.getInstance().estEnMarche()) {

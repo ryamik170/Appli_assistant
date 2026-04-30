@@ -1,6 +1,12 @@
 package com.tonnom.lifemanager.controllers;
 
+import javafx.fxml.FXML;
+import javafx.scene.Parent;
+
 public class TakeDataController {
+    
+    @FXML
+    private Parent color_text;
 
     //fonction qui va parser le fichier
 

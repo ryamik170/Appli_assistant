@@ -9,7 +9,7 @@
 
     <Label text="Paramètres" style="-fx-font-weight: bold;"/>
 
-    <Button fx:id="btn" onAction="#elems_in_setting" text="theme"/>
+    <Button fx:id="btn" onAction="#elems_in_setting" text="theme" style="-fx-font-weight: bold;"/>
 
 
 </VBox>
