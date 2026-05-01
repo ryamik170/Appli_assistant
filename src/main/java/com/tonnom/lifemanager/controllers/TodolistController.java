@@ -1,6 +1,5 @@
 package com.tonnom.lifemanager.controllers;
 
-import javafx.concurrent.Task;
 // ================= IMPORTS =================
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -92,7 +91,7 @@ public class TodolistController {
     }
 
     /**
-     * Supprime les tâches barrées (visuellement + fichier)
+     * Supprime les tâches barrées (sur l'appli + dans le file)
      */
     @FXML
     private void suppTask() {

@@ -19,15 +19,18 @@ public class Settings_Theme {
             "cyan", "black",
             "pink", "#3A1F2B",
             "blue", "white",
-            "yellow", "black",
-            "white", "black",
-            "orange", "black"
+            "yellow", "#5C4033",
+            "white", "#444444",
+            "orange", "#4A2C2A"
         ));
 
     private static Map<String, String> dico_button_background_colors = new HashMap<>(Map.of(
             "white", "#1F2937",   
             "black", "#E5E7EB",  
-            "#3A1F2B", "#FBCFE8" 
+            "#3A1F2B", "#FBCFE8",
+            "#4A2C2A",  "#FADCD9",
+            "#444444", "#F3F4F6",
+            "#5C4033", "#F3E8D5"
     ));
     
     public static void setBackground_color(String new_Background_color) {
@@ -40,18 +43,22 @@ public class Settings_Theme {
 
         color_text.setStyle("-fx-background-color: " + background_color + ";");
 
+        System.out.println("color them = " + color_theme);
+        System.out.println("color background button = " + color_background_button);
+        System.out.println("color background = " + background_color);
+
         for (Node node : color_text.lookupAll(".label")) {
             node.setStyle(
                 "-fx-text-fill: " + color_theme + ";" +
-                "-fx-font-family: 'Arial'; -fx-font-weight: bold;"
+                " -fx-font-family: 'Arial'; -fx-font-weight: bold;"
             );
         }
 
         for (Node node : color_text.lookupAll(".button")) {
             node.setStyle(
                 "-fx-text-fill: " + color_theme + ";" +
-                "-fx-background-color: " + color_background_button + ";" +
-                "-fx-border-color: black;"
+                " -fx-background-color: " + color_background_button + ";" +
+                " -fx-border-color: black; -fx-font-family: 'Arial'; -fx-font-weight: bold;"
             );
         }
     }
