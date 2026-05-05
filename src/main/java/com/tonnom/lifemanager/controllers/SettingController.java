@@ -114,6 +114,7 @@ public class SettingController {
         if (mainController != null) {
             //System.out.println("okay");
             mainController.color_of_the_appli(color);
+            Settings_Theme.app_color(root);
             delete_previous_color();
             save_color(color);
         }
